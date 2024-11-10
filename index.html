@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.9); /* Less transparency for visibility */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4); /* Soft glow effect */
+            color: #f5f5f5; /* Light text color for better contrast */
+        }
+        .flower {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle at center, cyan, blue);
+            border-radius: 50%;
+            animation: bloom 5s infinite ease-in-out;
+            box-shadow: 0 0 8px cyan, 0 0 15px cyan;
+            opacity: 0.9;
+        }
+        @keyframes bloom {
+            0% {
+                transform: scale(0.5) translateY(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5) translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p>To my pretty lover,</p>
+        <p>Hi langgga, happiest birthday and belated 30motmot!!! Iloveyouuuuuusomuchh. Know that I will always be ur number one supporter no matter what happens. I'll always be here by your side through thick and thin. Iloveyousomuch you know how much I love you. I wish you all nothing but the best, iloveyouuuuuu somuchh happy birthday!!</p>
+        <p>Sincerely yours,<br> Nathan</p>
+    </div>
+
+    <script>
+        // Function to create flower elements
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = `${Math.random() * 100}vw`;
+            flower.style.animationDuration = `${3 + Math.random() * 2}s`;
+            flower.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+            document.body.appendChild(flower);
+
+            // Remove flower after animation completes
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+
+        // Create a flower every 700ms
+        setInterval(createFlower, 700);
+    </script>
+</body>
+</html>
